@@ -96,7 +96,7 @@ class Node(object):
     def get_xml_string(self):
         """ returns the OpenNMS node as XML string """
         element = self.get_xml_element()
-        return ET.tostring(element, encoding="unicode", method="xml")
+        return ET.tostring(element, encoding="UTF-8", method="xml")
 
     def __repr__(self):
         output = "Node " + self.__label
@@ -145,7 +145,7 @@ class Requisition(object):
             requisition.append(self.__nodes[foreign_id].get_xml_element())
 
         # return XML string
-        return ET.tostring(requisition, encoding="unicode", method="xml")
+        return ET.tostring(requisition, encoding="UTF-8", method="xml")
 
 
 class Target(object):
